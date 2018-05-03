@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Skranji:700'); 
+
+// define variables for the chosen colors and fonts
+black = #252525
+white  = #ededed
+red = #c61b24
+font-header = 'Skranji', cursive
+font-text = 'Roboto', sans-serif
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+  
+body
+    min-height 100vh
+    width 100%
+    font-family font-main
+    color white 
+    background-color black 
+
+.container
+    // place the entire application in a single column layout, centering the elements in both dimensions
+    display flex 
+    height 100vh
+    flex-direction column
+    align-items center
+    justify-content center 
+    font-family font-text
+    text-align center
+
+    .container__title 
+        font-size 5vmax
+        text-transform uppercase
+        font-family font-header
+
+    .container__controls 
+        // display the controls in a single row
+        display flex 
+        width 100%
+        justify-content space-around
+        margin 2rem 0
+
+        span 
+            padding 0.4rem
+            font-size 2.4rem
+            
+        button 
+            background none 
+            border none 
+            outline none
+            color white
+            font-family inherit
+            font-size 1.8rem
+            cursor pointer
+            padding 0.4rem
+
+    .container__timer
+        font-size 12vmax
+        cursor pointer 
+        padding 0.5rem    
+        border 1rem double white
+        border-radius 4px

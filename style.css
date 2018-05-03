@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Skranji:700");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: font-main;
+  color: #ededed;
+  background-color: #252525;
+}
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+.container .container__title {
+  font-size: 5vmax;
+  text-transform: uppercase;
+  font-family: 'Skranji', cursive;
+}
+.container .container__controls {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+.container .container__controls span {
+  padding: 0.4rem;
+  font-size: 2.4rem;
+}
+.container .container__controls button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #ededed;
+  font-family: inherit;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.container .container__timer {
+  font-size: 12vmax;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: 1rem double #ededed;
+  border-radius: 4px;
+}
