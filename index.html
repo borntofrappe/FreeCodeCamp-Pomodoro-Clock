@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Pomodoro Clock</title>
+  <meta name="description" content="Create a pomodoro clock allowing for intervals of working and resting periods. Part of the Front-End Web Development curriculum @freecodecamp.">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+  <!--
+  html structure: 
+  wrapping div 
+    h1 title 
+    div for controls  
+    div for the timer 
+
+  -->
+  <div class="container">
+
+    <h1 class="container__title">
+      tomato tomato
+    </h1>
+
+
+    <div class="container__controls">
+      <!-- div for the controls itself contains two div, one for each control (work , break time) -->
+      <div class="controls--work">
+        <!-- each div has two buttons which surround and modify a number in a span  -->
+        <button title="Reduce working time" class="controls--change" data-value="-">-</button>
+        <span class="change--minutes">1</span>
+        <button title="Increase working time" class="controls--change" data-value="+">+</button>
+      
+      </div>
+
+      <div class="controls--break">
+
+        <button title="Reduce break time" class="controls--change" data-value="-">-</button>
+        <span class="change--minutes">1</span>
+        <button title="Increase break time" class="controls--change" data-value="+">+</button>
+      
+      </div>
+
+    </div>
+
+    <!-- text of the timer divided in minutes and seconds, and instantiated in the JS script -->
+    <h2 class="container__timer" title="Start Timer">
+      <span class="timer--minutes">1</span>
+      :
+      <span class="timer--seconds">00</span>
+    </h2>
+
+  </div>
+
+
+</body>
+</html>
