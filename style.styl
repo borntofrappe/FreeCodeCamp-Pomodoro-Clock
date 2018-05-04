@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Skranji:700'); 
+@import url('https://fonts.googleapis.com/css?family=Roboto|Pacifico'); 
 
 // define variables for the chosen colors and fonts
 black = #252525
 white  = #ededed
 red = #c61b24
-font-header = 'Skranji', cursive
+font-header = 'Pacifico', cursive
 font-text = 'Roboto', sans-serif
 
 *
@@ -20,7 +20,10 @@ body
     background-color black 
 
 .container
-    // place the entire application in a single column layout, centering the elements in both dimensions
+    /* 
+    display flex for the title and the timer in the container
+    the other elements are absolute positioned
+    */
     display flex 
     height 100vh
     flex-direction column
@@ -28,36 +31,99 @@ body
     justify-content center 
     font-family font-text
     text-align center
+    position relative
 
     .container__title 
         font-size 5vmax
         text-transform uppercase
         font-family font-header
 
+    .container__settings 
+        // position the icon which toggles the controls' panel in the top left corner
+        position absolute
+        top 2rem 
+        left 2rem
+        width 4.5rem
+        height 4.5rem
+        cursor pointer
+        // fill removed from the SVG declaration in order to be here set to the predefined red
+        fill red 
+        // transition for the state of hover and active (changing in saturation and scale)
+        transition all 0.3s ease-out
+
+        &:hover 
+            fill saturation(red, 150%)
+            transform scale(1.05)
+        &:active 
+            transform scale(1.3)
+
     .container__controls 
-        // display the controls in a single row
+        // hide the controls by default positioning them to the left of the visible area (and to the bottom of the SVG icon)
+        position absolute
+        // 10rem to give ample space, since the svg is 4.5rem tall, away from the top by 2rem
+        top 10rem
+        left -25rem
+        // display the controls in a single column layout
         display flex 
-        width 100%
-        justify-content space-around
-        margin 2rem 0
+        flex-direction column
+        // slightly darker white otherwise is too much of a contrast
+        background-color darken(white, 10%)
+        border-radius 0.5rem
+        color black
+        padding 1rem 1.5rem
+        // box shadow to give a light glow
+        box-shadow 0 1px 10px rgba(white, 0.2)
+        // transition for the panel coming and going out of view
+        transition left 0.3s ease-in-out
+
+        &.active
+            // active class defined to place the controls' panel into the visible area (class toggled in the JS script)
+            left 1rem
 
         span 
-            padding 0.4rem
             font-size 2.4rem
             
         button 
             background none 
             border none 
             outline none
-            color white
+            color inherit
             font-family inherit
-            font-size 1.8rem
+            font-size 2rem
             cursor pointer
             padding 0.4rem
+            margin 0.4rem 0
+
+            &:hover
+                // silly animation added on hover, to make the buttons evidently interact-able
+                animation highlight-button 0.3s ease-in
+
+            &.forbid
+                // class defined to visually dis-allow the buttons from being clicked (in the JS script the buttons are rendered click-able only when a timer is not ongoing)
+                cursor not-allowed
+        
 
     .container__timer
         font-size 12vmax
-        cursor pointer 
+        margin 2rem 0
         padding 0.5rem    
         border 1rem double white
         border-radius 4px
+        cursor pointer 
+
+        &:hover 
+            // silly animation changing the border-color, to a hue similar to the tomato in the top left corner
+            animation highlight-timer 1s infinite alternate ease-in-out
+
+
+@keyframes highlight-timer
+    // animation changing the border color to a light red
+    to
+        border-color lighten(red, 80%)
+
+@keyframes highlight-button
+    // animation making the HTML element shake left and right (right and left)
+    33%
+        transform translateX(2px)
+    67%
+        transform translateX(-2px)
