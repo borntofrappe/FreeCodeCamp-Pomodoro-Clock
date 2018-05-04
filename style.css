@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto|Skranji:700");
+@import url("https://fonts.googleapis.com/css?family=Roboto|Pacifico");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,6 +12,10 @@ body {
   background-color: #252525;
 }
 .container {
+/* 
+    display flex for the title and the timer in the container
+    the other elements are absolute positioned
+    */
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -19,36 +23,126 @@ body {
   justify-content: center;
   font-family: 'Roboto', sans-serif;
   text-align: center;
+  position: relative;
 }
 .container .container__title {
   font-size: 5vmax;
   text-transform: uppercase;
-  font-family: 'Skranji', cursive;
+  font-family: 'Pacifico', cursive;
+}
+.container .container__settings {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  cursor: pointer;
+  fill: #c61b24;
+  transition: all 0.3s ease-out;
+}
+.container .container__settings:hover {
+  fill: #e1000c;
+  transform: scale(1.05);
+}
+.container .container__settings:active {
+  transform: scale(1.3);
 }
 .container .container__controls {
+  position: absolute;
+  top: 10rem;
+  left: -25rem;
   display: flex;
-  width: 100%;
-  justify-content: space-around;
-  margin: 2rem 0;
+  flex-direction: column;
+  background-color: #d5d5d5;
+  border-radius: 0.5rem;
+  color: #252525;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 10px rgba(237,237,237,0.2);
+  transition: left 0.3s ease-in-out;
+}
+.container .container__controls.active {
+  left: 1rem;
 }
 .container .container__controls span {
-  padding: 0.4rem;
   font-size: 2.4rem;
 }
 .container .container__controls button {
   background: none;
   border: none;
   outline: none;
-  color: #ededed;
+  color: inherit;
   font-family: inherit;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
   padding: 0.4rem;
+  margin: 0.4rem 0;
+}
+.container .container__controls button:hover {
+  animation: highlight-button 0.3s ease-in;
+}
+.container .container__controls button.forbid {
+  cursor: not-allowed;
 }
 .container .container__timer {
   font-size: 12vmax;
-  cursor: pointer;
+  margin: 2rem 0;
   padding: 0.5rem;
   border: 1rem double #ededed;
   border-radius: 4px;
+  cursor: pointer;
+}
+.container .container__timer:hover {
+  animation: highlight-timer 1s infinite alternate ease-in-out;
+}
+@-moz-keyframes highlight-timer {
+  to {
+    border-color: #f8cdcf;
+  }
+}
+@-webkit-keyframes highlight-timer {
+  to {
+    border-color: #f8cdcf;
+  }
+}
+@-o-keyframes highlight-timer {
+  to {
+    border-color: #f8cdcf;
+  }
+}
+@keyframes highlight-timer {
+  to {
+    border-color: #f8cdcf;
+  }
+}
+@-moz-keyframes highlight-button {
+  33% {
+    transform: translateX(2px);
+  }
+  67% {
+    transform: translateX(-2px);
+  }
+}
+@-webkit-keyframes highlight-button {
+  33% {
+    transform: translateX(2px);
+  }
+  67% {
+    transform: translateX(-2px);
+  }
+}
+@-o-keyframes highlight-button {
+  33% {
+    transform: translateX(2px);
+  }
+  67% {
+    transform: translateX(-2px);
+  }
+}
+@keyframes highlight-button {
+  33% {
+    transform: translateX(2px);
+  }
+  67% {
+    transform: translateX(-2px);
+  }
 }
