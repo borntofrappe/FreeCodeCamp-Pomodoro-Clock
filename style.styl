@@ -127,3 +127,19 @@ body
         transform translateX(2px)
     67%
         transform translateX(-2px)
+        
+@media only screen and (max-width: 600px)
+    // for small screen sizes, as the controls' panel might overlap the timer, change the layout and position of the panel to be above the timer and to the right of the SVG icon
+    .container .container__controls
+       flex-direction row
+       top 2rem
+       left -35rem
+       transition all 0.2s ease-out
+
+       &.active
+           left 8rem
+
+    .container .container__controls span 
+        font-size 1.8rem
+    .container .container__controls button 
+        font-size 1.8rem
