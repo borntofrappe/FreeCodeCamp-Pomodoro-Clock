@@ -94,6 +94,23 @@ body {
 .container .container__timer:hover {
   animation: highlight-timer 1s infinite alternate ease-in-out;
 }
+@media only screen and (max-width: 600px) {
+  .container .container__controls {
+    flex-direction: row;
+    top: 2rem;
+    left: -35rem;
+    transition: all 0.2s ease-out;
+  }
+  .container .container__controls.active {
+    left: 8rem;
+  }
+  .container .container__controls span {
+    font-size: 1.8rem;
+  }
+  .container .container__controls button {
+    font-size: 1.8rem;
+  }
+}
 @-moz-keyframes highlight-timer {
   to {
     border-color: #f8cdcf;
